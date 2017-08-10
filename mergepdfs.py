@@ -17,7 +17,7 @@ PATH = "/Users/Shosta/Developpement/A traiter"
 
 def merge_pdf_files(file_names_list):
 	# Create a PdfFileMerger object.
-    from PyPDF2 import PdfFileMerger, PdfFileReader
+    from PyPDF2 import PdfFileMerger
     first_file_index = 0
     counter = 1
 
