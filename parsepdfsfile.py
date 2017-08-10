@@ -33,5 +33,3 @@ def remove_non_pdf_files(file_names_array):
             file_names_array.remove(file_name)
 
     return file_names_array
-
-print("Done")
