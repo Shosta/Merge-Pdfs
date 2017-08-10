@@ -8,11 +8,7 @@ import os.path
 import parsepdfsfile
 
 
-# sys.argv[1] le premier argument de la commande lorsque l'on lance la commande depuis un terminal.
 
-#PATH = "C:\\Remi\\Developpement\\A traiter"
-PATH = "/Users/Shosta/Developpement/A traiter"
-# PATH = 'C:\\Remi\\ShostaSync\\Scans a traiter'
 
 def merge_pdf_files(file_names_list):
 	# Create a PdfFileMerger object.
@@ -25,11 +21,11 @@ def merge_pdf_files(file_names_list):
         merger = PdfFileMerger()
         # Before appending the file, be sure that you are not testing above the list's last item.
         while first_file_index + counter <len(file_names_list) and file_names_list[first_file_index].split(" - part", 2)[0] == file_names_list[first_file_index + counter].split(" - part", 2)[0]:
-            merger.append(os.path.join(PATH, file_names_list[first_file_index + counter]), 'rb')
+            merger.append(os.path.join(directory_path, file_names_list[first_file_index + counter]), 'rb')
             counter = counter + 1
 
         # Write the last files' appends to a new file
-        merger.write(os.path.join(PATH, "results", file_names_list[first_file_index].split(" - part", 2)[0] + ".pdf"))
+        merger.write(os.path.join(directory_path, MERGED_PDFS_FOLDER, file_names_list[first_file_index].split(" - part", 2)[0] + ".pdf"))
         merger.close()
         # Add the counter to the first_file_counter to go to the next file.
         first_file_index = first_file_index + counter
@@ -42,13 +38,14 @@ def main():
         directory_path = sys.argv[1]
     except IndexError:
         print("Please write the directory path where you want to merge the pdfs as "
-              "the first argument of the python call.")
-        directory_path = PATH
+              "the first argument of the python call.\n"
+              "At the moment, the files are going to be merged into the current folder.")
+        directory_path = "."
 
     file_names_list = parsepdfsfile.parse_file(directory_path)
     parsepdfsfile.remove_non_pdf_files(file_names_list)
 
-    merge_pdf_files(file_names_list)
+    merge_pdf_files(directory_path, file_names_list)
 
 
 main()
