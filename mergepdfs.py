@@ -75,5 +75,6 @@ def main():
     create_default_results_folder(target_folder)
     merge_pdf_files(target_folder, file_names_list)
 
+    print('Files merged successfully')
 
 main()
