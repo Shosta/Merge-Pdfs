@@ -35,17 +35,17 @@ def merge_pdf_files(file_names_list):
 def main():
     '''Main function'''
     try:
-        directory_path = sys.argv[1]
+        target_folder = sys.argv[1]
     except IndexError:
         print("Please write the directory path where you want to merge the pdfs as "
               "the first argument of the python call.\n"
               "At the moment, the files are going to be merged into the current folder.")
-        directory_path = "."
+        target_folder = "."
 
-    file_names_list = parsepdfsfile.parse_file(directory_path)
+    file_names_list = parsepdfsfile.parse_file(target_folder)
     parsepdfsfile.remove_non_pdf_files(file_names_list)
 
-    merge_pdf_files(directory_path, file_names_list)
+    merge_pdf_files(target_folder, file_names_list)
 
 
 main()
