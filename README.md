@@ -31,15 +31,23 @@ Let's consider that you scan (or have by any other method) a lot of different pd
 You need to rename your files according to the following pattern : 
 
 > "_file name1 - part1.pdf_"
+>
 > ...
+>
 > "_file name1 - partN.pdf_"
+>
 > "_file name2 - part1.pdf_"
+>
 > ...
+>
 > "_file name2 - partN.pdf_"
 
-######TODO: Insert an image of a folder before/after here.
 
-The files that have the same name ("_file name1_" for instance) are going to be merged together.
+See a folder that is properly prepared on the image below :
+
+![Scanned Images Folder](/READMEImages/scannedFilesToMerge.png)
+
+>The files that have the same name ("_file name1_" for instance) are going to be merged together.
 
 
 ### 2. Installation of the required softwares.
@@ -52,7 +60,25 @@ As a start, you need to install the PyPDF2 python module to your computer as it 
 ### 3. Call the module
 
 You could then call the module like this, when you are in the folder that has the "_mergepdfs.py_" file : 
+
 `mergepdfs.py ./path/to/the/pdf/files/I/want/to/merge `
+
+I use powershell to do this on Windows :
+
+![](/READMEImages/commandToLaunch.png)
+
+and you can see that the files were merged properly.
+
+![](/READMEImages/commandResult.png)
+
+
+### 4. Enjoy the results
+
+A "result" directory is created to store the merged files.
+
+Then the files are named as were their parts and available in the "result" folder.
+
+![](/READMEImages/scannedFilesMerged.png)
 
 <br><br>
 
