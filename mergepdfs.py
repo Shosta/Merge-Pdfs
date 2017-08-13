@@ -96,11 +96,13 @@ def main(argv):
             else:
                 print('Default separator')
                 separator = ' - part'
+    print('Target Folder is: \"' + target_folder + "\"")
+    print('Separator is: \"' + separator + "\"")
     
 
     # Parse the files.
     file_names_list = parsepdfsfile.parse_file(target_folder)
-    parsepdfsfile.remove_non_pdf_files(file_names_list)
+    file_names_list = parsepdfsfile.remove_non_pdf_files(file_names_list)
 
     # Merge the files.
     create_default_results_folder(target_folder)
