@@ -4,16 +4,16 @@ The files must be named properly to be identified as mergeable.
 '''
 import os.path
 
-MERGED_PDFS_FOLDER = 'results'
+MERGE_PDFS_RESULT_FOLDER = 'results'
 
 def create_default_results_folder(directory_path):
     '''
-    From the directory path passed as an argument, it checks if the MERGED_PDFS_FOLDER exists and creates it if not.
+    From the directory path passed as an argument, it checks if the MERGE_PDFS_RESULT_FOLDER exists and creates it if not.
 
     Params:
-    directory_path: The Directory path from where we want to check if the MERGED_PDFS_FOLDER exists.
+    directory_path: The Directory path from where we want to check if the MERGE_PDFS_RESULT_FOLDER exists.
     '''
-    results_directory = os.path.join(directory_path, MERGED_PDFS_FOLDER)
+    results_directory = os.path.join(directory_path, MERGE_PDFS_RESULT_FOLDER)
     if not os.path.exists(results_directory):
         # Create default "results" path.
         os.makedirs(results_directory)
@@ -27,7 +27,7 @@ def merge_pdf_files(directory_path, file_names_list, separator):
     'file name - "separator"N.pdf'
     into a single Pdf file names 'file name.pdf'.
 
-    The merged pdf files are then stored into the 'MERGED_PDFS_FOLDER'.
+    The merged pdf files are then stored into the 'MERGE_PDFS_RESULT_FOLDER'.
 
     Params:
     directory_path: The path from where the function is going to merge the Pdf files.
@@ -47,7 +47,7 @@ def merge_pdf_files(directory_path, file_names_list, separator):
             counter = counter + 1
 
         # Write the last files' appends to a new file
-        merger.write(os.path.join(directory_path, MERGED_PDFS_FOLDER, file_names_list[first_file_index].split(separator, 2)[0] + ".pdf"))
+        merger.write(os.path.join(directory_path, MERGE_PDFS_RESULT_FOLDER, file_names_list[first_file_index].split(separator, 2)[0] + ".pdf"))
         merger.close()
         # Add the counter to the first_file_counter to go to the next file.
         first_file_index = first_file_index + counter
