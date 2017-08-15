@@ -28,8 +28,9 @@ def remove_non_pdf_files(file_names_array):
     Return:
     A list of files that contains only Pdf file names.
     '''
+    result_array = []
     for file_name in file_names_array:
-        if not file_name.lower().endswith('.pdf'):
-            file_names_array.remove(file_name)
+        if file_name.lower().endswith('.pdf'):
+            result_array.append(file_name)
 
-    return file_names_array
+    return result_array
