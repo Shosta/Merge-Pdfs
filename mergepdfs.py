@@ -5,8 +5,8 @@ long as the file as properly named.
 '''
 import sys
 import getopt
-import mergefiles
 import parsepdfsfile
+import mergefiles
 
 
 def usage():
@@ -50,14 +50,13 @@ def main(argv):
             destination_folder = arg
 
     # If the user specify the source folder but not the destination folder,
-    #then the destination folder is the source folder.
+    #then the destination folder is identical to the source folder.
     if source_folder != '.' and destination_folder == '.':
         destination_folder = source_folder
 
     print('Source folder is: \"' + source_folder + "\"")
     print('Destination folder is: \"' + destination_folder + "\"")
     print('File separator is: \"' + separator + "\"")
-
 
     # Parse the files.
     file_names_list = parsepdfsfile.parse_file(source_folder)
@@ -67,7 +66,7 @@ def main(argv):
     mergefiles.create_default_results_folder(destination_folder)
     mergefiles.merge_pdf_files(source_folder, destination_folder, file_names_list, separator)
 
-    print('Files merged successfully')
+    print('Your files are merged successfully.')
 
 
 if __name__ == "__main__":
