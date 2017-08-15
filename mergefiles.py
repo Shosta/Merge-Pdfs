@@ -19,7 +19,7 @@ def create_default_results_folder(directory_path):
         os.makedirs(results_directory)
 
 
-def merge_pdf_files(directory_path, file_names_list, separator):
+def merge_pdf_files(directory_path, destination_folder, file_names_list, separator):
     '''
     Check the Pdf files from the 'file_names_list' and merge the ones that are named as followed :
     'file name "separator"1.pdf'
@@ -47,7 +47,7 @@ def merge_pdf_files(directory_path, file_names_list, separator):
             counter = counter + 1
 
         # Write the last files' appends to a new file
-        merger.write(os.path.join(directory_path, MERGE_PDFS_RESULT_FOLDER, file_names_list[first_file_index].split(separator, 2)[0] + ".pdf"))
+        merger.write(os.path.join(destination_folder, MERGE_PDFS_RESULT_FOLDER, file_names_list[first_file_index].split(separator, 2)[0] + ".pdf"))
         merger.close()
         # Add the counter to the first_file_counter to go to the next file.
         first_file_index = first_file_index + counter
