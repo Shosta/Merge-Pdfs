@@ -14,9 +14,10 @@ def parse_file(dir_path):
     '''
     from os import listdir
     from os.path import isfile, join
-    onlyfiles = [f for f in listdir(dir_path) if isfile(join(dir_path, f))]
+    only_files = [f for f in listdir(dir_path) if isfile(join(dir_path, f))]
+    only_files.sort()
 
-    return onlyfiles
+    return only_files
 
 def remove_non_pdf_files(file_names_array):
     '''
